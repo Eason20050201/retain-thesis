@@ -1,0 +1,7 @@
+names:
+- tooth
+nc: 1
+path: .
+test: /home/mmlab206/文件/41247055S/retain-thesis/data/test/images
+train: /home/mmlab206/文件/41247055S/retain-thesis/experiments/exp001_yolo12n_adamw/merged_train_val.txt
+val: /home/mmlab206/文件/41247055S/retain-thesis/experiments/exp001_yolo12n_adamw/merged_train_val.txt

@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolo12n.pt
-data: /home/mmlab206/文件/41247055S/retain-thesis/data/dataset.yaml
+data: /home/mmlab206/文件/41247055S/retain-thesis/experiments/exp001_yolo12n_adamw/dataset_merged.yaml
 epochs: 80
 time: null
 patience: 15
