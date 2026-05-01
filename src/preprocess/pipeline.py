@@ -3,9 +3,7 @@ from pathlib import Path
 
 import albumentations as A
 import cv2
-import numpy as np
 import yaml
-from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
 
@@ -14,15 +12,14 @@ class PreprocessPipeline:
         with open(config_path) as f:
             self.cfg = yaml.safe_load(f)
 
-        self.img_size = tuple(self.cfg["image"]["size"])
+        img_cfg = self.cfg["image"]
+        h, w = img_cfg["size"]
         self.output_dir = Path(self.cfg["output_dir"])
-        self.splits_dir = Path(self.cfg["splits_dir"])
 
         aug_cfg = self.cfg["augmentation"]
-        transforms = [A.Resize(*self.img_size)]
+        transforms = [A.Resize(h, w)]
+
         if aug_cfg.get("enabled"):
-            if aug_cfg.get("horizontal_flip", 0) > 0:
-                transforms.append(A.HorizontalFlip(p=aug_cfg["horizontal_flip"]))
             clahe = aug_cfg.get("clahe", {})
             if clahe.get("p", 0) > 0:
                 transforms.append(
@@ -41,47 +38,59 @@ class PreprocessPipeline:
                         p=rbc["p"],
                     )
                 )
+
+        # 只套用不影響 bounding box 的 transform（無幾何變換）
         self.transform = A.Compose(transforms)
 
-    def run(self, raw_dir: str) -> None:
-        raw_dir = Path(raw_dir)
-        image_paths = sorted(raw_dir.rglob("*.jpg")) + sorted(raw_dir.rglob("*.png"))
+    def run(self, data_yaml_path: str) -> str:
+        """
+        讀取原始 dataset.yaml，對每個 split 做前處理，
+        輸出新的 dataset_processed.yaml。
+        """
+        with open(data_yaml_path) as f:
+            dataset_cfg = yaml.safe_load(f)
 
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.splits_dir.mkdir(parents=True, exist_ok=True)
+        src_root = Path(data_yaml_path).parent
 
-        processed = []
-        for img_path in tqdm(image_paths, desc="Preprocessing"):
+        for split in ("train", "val", "test"):
+            split_img_dir = src_root / f"{split}" / "images"
+            split_lbl_dir = src_root / f"{split}" / "labels"
+            if not split_img_dir.exists():
+                continue
+            self._process_split(split_img_dir, split_lbl_dir, split)
+
+        # 產生新的 dataset yaml 指向 processed 資料
+        processed_yaml_path = self.output_dir / "dataset_processed.yaml"
+        processed_cfg = dict(dataset_cfg)
+        processed_cfg["path"] = str(self.output_dir)
+        processed_cfg["train"] = "train/images"
+        processed_cfg["val"]   = "val/images"
+        processed_cfg["test"]  = "test/images"
+
+        processed_yaml_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(processed_yaml_path, "w") as f:
+            yaml.dump(processed_cfg, f, allow_unicode=True)
+
+        print(f"前處理完成，dataset yaml: {processed_yaml_path}")
+        return str(processed_yaml_path)
+
+    def _process_split(self, img_dir: Path, lbl_dir: Path, split: str) -> None:
+        out_img_dir = self.output_dir / split / "images"
+        out_lbl_dir = self.output_dir / split / "labels"
+        out_img_dir.mkdir(parents=True, exist_ok=True)
+        out_lbl_dir.mkdir(parents=True, exist_ok=True)
+
+        img_paths = sorted(img_dir.glob("*.jpg")) + sorted(img_dir.glob("*.png"))
+        for img_path in tqdm(img_paths, desc=f"preprocess [{split}]"):
             img = cv2.imread(str(img_path))
             if img is None:
                 continue
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             result = self.transform(image=img)["image"]
-            out_path = self.output_dir / img_path.name
-            cv2.imwrite(str(out_path), cv2.cvtColor(result, cv2.COLOR_RGB2BGR))
-            processed.append(str(out_path))
+            out_img = out_img_dir / img_path.name
+            cv2.imwrite(str(out_img), cv2.cvtColor(result, cv2.COLOR_RGB2BGR))
 
-        self._make_splits(processed)
-
-    def _make_splits(self, paths: list[str]) -> None:
-        split_cfg = self.cfg["split"]
-        seed = split_cfg["seed"]
-        val_ratio = split_cfg["val_ratio"]
-        test_ratio = split_cfg["test_ratio"]
-
-        train_paths, test_paths = train_test_split(
-            paths, test_size=test_ratio, random_state=seed
-        )
-        adjusted_val = val_ratio / (1 - test_ratio)
-        train_paths, val_paths = train_test_split(
-            train_paths, test_size=adjusted_val, random_state=seed
-        )
-
-        for split_name, split_paths in [
-            ("train", train_paths),
-            ("val", val_paths),
-            ("test", test_paths),
-        ]:
-            out_file = self.splits_dir / f"{split_name}.txt"
-            out_file.write_text("\n".join(split_paths))
-            print(f"{split_name}: {len(split_paths)} images → {out_file}")
+            # label 直接複製（無幾何變換，座標不變）
+            lbl_path = lbl_dir / (img_path.stem + ".txt")
+            if lbl_path.exists():
+                shutil.copy(lbl_path, out_lbl_dir / lbl_path.name)

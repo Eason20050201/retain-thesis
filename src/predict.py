@@ -18,6 +18,7 @@ import yaml
 from src import ROOT
 from src.evaluate import print_scores, save_scores_csv
 from src.models import DentalDetector
+from src.preprocess import PreprocessPipeline
 
 
 def load_experiment(exp_path: str) -> dict:
@@ -36,6 +37,13 @@ def run_pipeline(exp_cfg: dict, output_dir: Path, weights: str | None) -> None:
     model_cfg_path = str(ROOT / "configs" / exp_cfg["model"])
     data_yaml = str(ROOT / "data" / "dataset.yaml")
     device = exp_cfg["train"].get("device", "auto")
+
+    # ── 0. 前處理（若 experiment config 有設定 preprocess）───────────
+    if "preprocess" in exp_cfg:
+        preprocess_cfg_path = str(ROOT / "configs" / exp_cfg["preprocess"])
+        print("\n[0/3] 執行前處理...")
+        pipeline = PreprocessPipeline(preprocess_cfg_path)
+        data_yaml = pipeline.run(data_yaml)
 
     detector = DentalDetector(model_cfg_path)
 
