@@ -16,10 +16,3 @@ train:
   seed:           42
   device:         mps          # cpu / cuda / mps（Apple Silicon GPU）
   amp:            false        # Automatic Mixed Precision
-
-data:
-  train: data/splits/train.txt
-  val:   data/splits/val.txt
-  test:  data/splits/test.txt
-
-output_dir: experiments/{name}_{timestamp}

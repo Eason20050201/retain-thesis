@@ -10,3 +10,4 @@ train:
   patience:      15
   img_size:      1024
   device:        auto
+  device:        "0,1"
