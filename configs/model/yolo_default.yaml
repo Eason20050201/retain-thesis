@@ -12,4 +12,4 @@ inference:
   iou_threshold:  0.45
   max_det:        50
   img_size:       640
-  device:         mps          # cpu / cuda / mps（Apple Silicon GPU）
+  device:         auto          # cpu / cuda / mps（Apple Silicon GPU）

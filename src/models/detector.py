@@ -31,7 +31,7 @@ class DentalDetector:
             "data":     data_yaml,
             "epochs":   train_cfg.get("epochs", 100),
             "batch":    train_cfg.get("batch_size", 16),
-            "imgsz":    self.inf_cfg.get("img_size", 640),
+            "imgsz":    train_cfg.get("img_size", self.inf_cfg.get("img_size", 640)),
             "lr0":      train_cfg.get("learning_rate", 0.01),
             "optimizer": train_cfg.get("optimizer", "SGD"),
             "patience": train_cfg.get("patience", 50),
@@ -61,7 +61,7 @@ class DentalDetector:
         metrics = self.model.val(
             data=data_yaml,
             split=split,
-            device=device,
+            device=resolve_device(device),
             verbose=False,
         )
         task = self.cfg.get("task", "segment")
@@ -80,5 +80,5 @@ class DentalDetector:
             iou=self.inf_cfg.get("iou_threshold", 0.45),
             max_det=self.inf_cfg.get("max_det", 50),
             imgsz=self.inf_cfg.get("img_size", 640),
-            device=self.inf_cfg.get("device", "mps"),
+            device=resolve_device(self.inf_cfg.get("device", "auto")),
         )

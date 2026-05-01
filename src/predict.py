@@ -35,7 +35,7 @@ def make_output_dir(exp_path: str) -> Path:
 def run_pipeline(exp_cfg: dict, output_dir: Path, weights: str | None) -> None:
     model_cfg_path = str(ROOT / "configs" / exp_cfg["model"])
     data_yaml = str(ROOT / "data" / "dataset.yaml")
-    device = exp_cfg["train"].get("device", "mps")
+    device = exp_cfg["train"].get("device", "auto")
 
     detector = DentalDetector(model_cfg_path)
 

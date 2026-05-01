@@ -12,4 +12,4 @@ inference:
   iou_threshold:  0.45
   max_det:        50
   img_size:       1024
-  device:         mps
+  device:         auto
