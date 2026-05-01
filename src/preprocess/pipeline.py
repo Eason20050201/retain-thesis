@@ -1,10 +1,10 @@
 import shutil
 from pathlib import Path
 
-# import albumentations as A
+import albumentations as A
 import cv2
 import yaml
-# from tqdm import tqdm
+from tqdm import tqdm
 
 
 class PreprocessPipeline:
