@@ -1,0 +1,12 @@
+description: "YOLO12n, AdamW, imgsz=1024, lr0=0.0014"
+
+preprocess: preprocess/default.yaml
+model:      model/yolo12n.yaml
+
+train:
+  epochs:        200
+  batch_size:    16
+  learning_rate: 0.0014
+  optimizer:     AdamW
+  patience:      25
+  device:        mps

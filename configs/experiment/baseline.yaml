@@ -1,0 +1,26 @@
+name: baseline
+description: "YOLOv8n baseline experiment on panoramic dental X-ray"
+
+preprocess: preprocess/default.yaml
+model:      model/yolo_default.yaml
+
+train:
+  epochs:         10
+  batch_size:     16
+  learning_rate:  0.01
+  optimizer:      SGD          # SGD / Adam / AdamW
+  weight_decay:   0.0005
+  warmup_epochs:  3
+  patience:       20           # early stopping
+  save_period:    10           # 每 N epoch 存一次 checkpoint
+  workers:        4
+  seed:           42
+  device:         mps          # cpu / cuda / mps（Apple Silicon GPU）
+  amp:            false        # Automatic Mixed Precision
+
+data:
+  train: data/splits/train.txt
+  val:   data/splits/val.txt
+  test:  data/splits/test.txt
+
+output_dir: experiments/{name}_{timestamp}

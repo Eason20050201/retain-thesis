@@ -1,0 +1,44 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.so
+
+# Data (raw 原始資料不進版控)
+data/
+*.zip
+*.tar.gz
+*.jpg
+*.png
+
+# Experiment outputs (大檔案不進版控，只保留 config + metrics)
+experiments/*/weights/
+experiments/*/predict/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# MLflow
+mlruns/
+
+# Model weights
+*.pt
+*.pth
+*.onnx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

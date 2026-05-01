@@ -1,0 +1,22 @@
+data:
+  test: data/splits/test.txt
+  train: data/splits/train.txt
+  val: data/splits/val.txt
+description: YOLOv8n baseline experiment on panoramic dental X-ray
+model: model/yolo_default.yaml
+name: baseline
+output_dir: experiments/{name}_{timestamp}
+preprocess: preprocess/default.yaml
+train:
+  amp: false
+  batch_size: 16
+  device: mps
+  epochs: 10
+  learning_rate: 0.01
+  optimizer: SGD
+  patience: 20
+  save_period: 10
+  seed: 42
+  warmup_epochs: 3
+  weight_decay: 0.0005
+  workers: 4

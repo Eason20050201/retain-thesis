@@ -1,0 +1,15 @@
+name: yolov8n                # yolov8n / yolov8s / yolov8m / yolov8l / yolov8x
+task: detect
+pretrained: true
+weights: yolov8n.pt
+
+num_classes: 1               # 目前標注只有單一類別：牙齒
+class_names:
+  - "tooth"
+
+inference:
+  conf_threshold: 0.25
+  iou_threshold:  0.45
+  max_det:        50
+  img_size:       640
+  device:         mps          # cpu / cuda / mps（Apple Silicon GPU）
