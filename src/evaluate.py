@@ -18,38 +18,44 @@ def add_f1(metrics: dict) -> dict:
 
 def save_scores_csv(
     output_dir: Path,
-    val_metrics: dict,
     test_metrics: dict,
+    val_metrics: dict | None = None,
 ) -> Path:
-    """
-    將 val best 與 test 分數合併寫入 scores.csv。
-
-    output:
-        metric,val_best,test
-        mAP50,0.8700,0.8300
-        ...
-    """
-    val_metrics = add_f1(val_metrics)
     test_metrics = add_f1(test_metrics)
 
     path = output_dir / "scores.csv"
     with open(path, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["metric", "val_best", "test"])
-        for key in METRICS:
-            writer.writerow([key, val_metrics.get(key, ""), test_metrics.get(key, "")])
+        if val_metrics is not None:
+            val_metrics = add_f1(val_metrics)
+            writer.writerow(["metric", "val_best", "test"])
+            for key in METRICS:
+                writer.writerow([key, val_metrics.get(key, ""), test_metrics.get(key, "")])
+        else:
+            writer.writerow(["metric", "test"])
+            for key in METRICS:
+                writer.writerow([key, test_metrics.get(key, "")])
     return path
 
 
-def print_scores(val_metrics: dict, test_metrics: dict) -> None:
-    val_metrics = add_f1(val_metrics)
+def print_scores(test_metrics: dict, val_metrics: dict | None = None) -> None:
     test_metrics = add_f1(test_metrics)
 
-    header = f"{'metric':<14} {'val_best':>10} {'test':>10}"
-    sep = "-" * len(header)
-    print(sep)
-    print(header)
-    print(sep)
-    for key in METRICS:
-        print(f"{key:<14} {val_metrics.get(key, '-'):>10} {test_metrics.get(key, '-'):>10}")
+    if val_metrics is not None:
+        val_metrics = add_f1(val_metrics)
+        header = f"{'metric':<14} {'val_best':>10} {'test':>10}"
+        sep = "-" * len(header)
+        print(sep)
+        print(header)
+        print(sep)
+        for key in METRICS:
+            print(f"{key:<14} {val_metrics.get(key, '-'):>10} {test_metrics.get(key, '-'):>10}")
+    else:
+        header = f"{'metric':<14} {'test':>10}"
+        sep = "-" * len(header)
+        print(sep)
+        print(header)
+        print(sep)
+        for key in METRICS:
+            print(f"{key:<14} {test_metrics.get(key, '-'):>10}")
     print(sep)
