@@ -35,20 +35,28 @@ def make_output_dir(exp_path: str) -> Path:
 
 def build_merged_yaml(data_yaml: str, output_dir: Path) -> str:
     """
-    產生 train+val 合併的 dataset yaml。
-    ultralytics 訓練用 train，early stopping 用 val（指向 test）。
+    train + val 合併成訓練資料，val 也指向同一份（讓 ultralytics 決定 best.pt），
+    test 保持獨立，不參與任何訓練過程。
     """
     with open(data_yaml) as f:
         cfg = yaml.safe_load(f)
 
     src_root = Path(data_yaml).parent
+
+    # 收集 train + val 所有圖片路徑寫成 txt
+    merged_txt = output_dir / "merged_train_val.txt"
+    imgs = []
+    for split in ("train", "valid"):
+        img_dir = src_root / split / "images"
+        if img_dir.exists():
+            imgs += sorted(img_dir.glob("*.jpg")) + sorted(img_dir.glob("*.png"))
+    merged_txt.write_text("\n".join(str(p) for p in imgs))
+    print(f"      merged train+val: {len(imgs)} 張圖片")
+
     merged_cfg = dict(cfg)
-    merged_cfg["train"] = [
-        str(src_root / "train" / "images"),
-        str(src_root / "valid" / "images"),
-    ]
-    merged_cfg["val"]  = str(src_root / "test" / "images")
-    merged_cfg["test"] = str(src_root / "test" / "images")
+    merged_cfg["train"] = str(merged_txt)
+    merged_cfg["val"]   = str(merged_txt)   # early stopping 依訓練資料表現，test 完全獨立
+    merged_cfg["test"]  = str(src_root / "test" / "images")
 
     merged_yaml_path = output_dir / "dataset_merged.yaml"
     with open(merged_yaml_path, "w") as f:
