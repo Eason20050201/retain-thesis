@@ -1,5 +1,5 @@
 image:
-  size: [640, 640]       # resize 目標尺寸 [H, W]
+  size: [1024, 1024]     # resize 目標尺寸 [H, W]（未接入主流程，ultralytics 自行處理）
   normalize: true
   mean: [0.485, 0.456, 0.406]
   std:  [0.229, 0.224, 0.225]
