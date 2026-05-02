@@ -27,28 +27,22 @@ class DentalDetector:
 
     def train(self, data_yaml: str, train_cfg: dict, output_dir: str) -> Path:
         """訓練並回傳 best.pt 的路徑。"""
-        kwargs = {
-            "data":     data_yaml,
-            "epochs":   train_cfg.get("epochs", 100),
-            "batch":    train_cfg.get("batch_size", 16),
-            "imgsz":    train_cfg.get("img_size", self.inf_cfg.get("img_size", 640)),
-            "lr0":      train_cfg.get("learning_rate", 0.01),
-            "optimizer": train_cfg.get("optimizer", "SGD"),
-            "patience": train_cfg.get("patience", 50),
-            "device":   resolve_device(train_cfg.get("device", "auto")),
-            "project":  output_dir,
-            "name":     "train",
-            "exist_ok": True,
-        }
-        # 只有 yaml 有設才傳給 ultralytics，其餘用 ultralytics 預設
-        for key, cfg_key in [("weight_decay", "weight_decay"),
-                              ("warmup_epochs", "warmup_epochs"),
-                              ("save_period", "save_period"),
-                              ("workers", "workers"),
-                              ("seed", "seed")]:
-            if cfg_key in train_cfg:
-                kwargs[key] = train_cfg[cfg_key]
-
+        kwargs = dict(
+            data=data_yaml,
+            epochs=train_cfg["epochs"],
+            batch=train_cfg["batch_size"],
+            imgsz=train_cfg["img_size"],
+            lr0=train_cfg["learning_rate"],
+            optimizer=train_cfg["optimizer"],
+            patience=train_cfg["patience"],
+            seed=train_cfg.get("seed", 0),
+            device=resolve_device(train_cfg.get("device", "auto")),
+            project=output_dir,
+            name="train",
+            exist_ok=True,
+        )
+        if "workers" in train_cfg:
+            kwargs["workers"] = train_cfg["workers"]
         self.model.train(**kwargs)
         best_path = Path(output_dir) / "train" / "weights" / "best.pt"
         return best_path

@@ -1,5 +1,4 @@
 description: YOLO12n, AdamW, imgsz=1024, lr0=0.0014
-merge_val_to_train: true
 model: model/yolo12n.yaml
 train:
   batch_size: 16
@@ -8,4 +7,4 @@ train:
   img_size: 1024
   learning_rate: 0.0014
   optimizer: AdamW
-  patience: 15
+  patience: 25

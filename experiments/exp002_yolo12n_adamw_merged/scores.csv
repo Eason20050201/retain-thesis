@@ -1,0 +1,6 @@
+metric,test
+mAP50,0.6329
+mAP50_95,0.2492
+precision,0.5638
+recall,0.6573
+f1,0.607
