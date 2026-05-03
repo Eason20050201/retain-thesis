@@ -1,0 +1,14 @@
+description: "YOLO12n, SGD, imgsz=1024, lr0=0.00934, batch=8 (tune trial_027 最佳參數)"
+
+model: model/yolo12n.yaml
+
+train:
+  epochs:        80
+  batch_size:    8
+  learning_rate: 0.00934
+  optimizer:     SGD
+  patience:      20
+  img_size:      1024
+  device:        "0"
+  seed:          0
+  workers:       2

@@ -43,6 +43,8 @@ class DentalDetector:
         )
         if "workers" in train_cfg:
             kwargs["workers"] = train_cfg["workers"]
+        if "plots" in train_cfg:
+            kwargs["plots"] = train_cfg["plots"]
         self.model.train(**kwargs)
         best_path = Path(output_dir) / "train" / "weights" / "best.pt"
         return best_path
