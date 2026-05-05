@@ -2,11 +2,11 @@ task: detect
 mode: train
 model: yolo12n.pt
 data: /home/taiyu/retain-thesis/data/dataset.yaml
-epochs: 200
+epochs: 80
 time: null
 patience: 25
-batch: 8
-imgsz: 1024
+batch: 16
+imgsz: 640
 save: true
 save_period: -1
 cache: false
@@ -16,7 +16,7 @@ project: /home/taiyu/retain-thesis/experiments/tune_v2/trial_011
 name: train
 exist_ok: true
 pretrained: true
-optimizer: SGD
+optimizer: AdamW
 verbose: true
 seed: 0
 deterministic: true
@@ -71,7 +71,7 @@ simplify: true
 opset: null
 workspace: null
 nms: false
-lr0: 0.00010769983061370949
+lr0: 0.0010649438604541344
 lrf: 0.01
 momentum: 0.937
 weight_decay: 0.0005

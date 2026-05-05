@@ -28,10 +28,10 @@ OPTIMIZER_CHOICES = ["AdamW", "SGD"]
 IMGSZ_CHOICES    = [640, 1024]
 
 # ── 每次試驗的訓練設定（短跑，節省時間）────────────────
-EPOCHS_PER_TRIAL = 200
+EPOCHS_PER_TRIAL = 80
 PATIENCE         = 25
 DEVICE           = "0"
-N_TRIALS         = 30
+N_TRIALS         = 50
 
 
 def objective(trial: optuna.Trial) -> float:

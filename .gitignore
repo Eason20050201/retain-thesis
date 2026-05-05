@@ -19,6 +19,14 @@ data/
 *.jpg
 *.png
 
+data_clahe/
+data_clahe_abc
+data_gamma
+data_gray
+data_kde
+data_pipeline/
+data_pipeline2/
+
 # Experiment outputs (大檔案不進版控，只保留 config + metrics)
 experiments/*/weights/
 experiments/*/predict/

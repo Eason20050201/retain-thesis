@@ -68,7 +68,7 @@ def main():
 
     train_cfg = exp_cfg["train"]
     model_cfg_path = str(ROOT / "configs" / exp_cfg["model"])
-    data_yaml = str(ROOT / "data" / "dataset.yaml")
+    data_yaml = str(ROOT / "data" / exp_cfg.get("dataset", "dataset.yaml"))
     device = train_cfg.get("device", "auto")
     merge_val = exp_cfg.get("merge_val_to_train", False)
 

@@ -2,7 +2,7 @@ task: detect
 mode: train
 model: yolo12n.pt
 data: /home/taiyu/retain-thesis/data/dataset.yaml
-epochs: 200
+epochs: 80
 time: null
 patience: 25
 batch: 8
@@ -71,7 +71,7 @@ simplify: true
 opset: null
 workspace: null
 nms: false
-lr0: 0.00011715937392307068
+lr0: 0.004138040112561018
 lrf: 0.01
 momentum: 0.937
 weight_decay: 0.0005
