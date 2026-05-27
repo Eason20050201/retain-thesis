@@ -1,0 +1,16 @@
+{
+  "folds_completed": 5,
+  "f1_mean": 0.773992,
+  "f1_std": 0.0456,
+  "precision_mean": 0.773877,
+  "precision_std": 0.039068,
+  "recall_mean": 0.774536,
+  "recall_std": 0.054728,
+  "AP50_mean": 0.750546,
+  "AP50_std": 0.049259,
+  "AP50_95_mean": 0.37397,
+  "AP50_95_std": 0.056031,
+  "confidence_threshold_mean": 0.13738,
+  "confidence_threshold_std": 0.101975,
+  "experiment": "yolo12n_clahe_abc_cv5"
+}

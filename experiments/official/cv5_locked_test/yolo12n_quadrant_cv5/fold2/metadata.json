@@ -1,0 +1,32 @@
+{
+  "fold": 2,
+  "engine": "yolo",
+  "dataset_variant": "quadrant",
+  "fold_yaml": "data/splits/cv5_seed20260525/quadrant/fold2.yaml",
+  "train_list": "data/splits/cv5_seed20260525/quadrant/fold2_train.txt",
+  "val_list": "data/splits/cv5_seed20260525/quadrant/fold2_val.txt",
+  "output_dir": "experiments/official/cv5_locked_test/yolo12n_quadrant_cv5/fold2",
+  "weights": "experiments/official/cv5_locked_test/yolo12n_quadrant_cv5/fold2/train/weights/best.pt",
+  "metrics": {
+    "tp": 42,
+    "fp": 6,
+    "fn": 21,
+    "precision": 0.875,
+    "recall": 0.666667,
+    "f1": 0.756757,
+    "confidence_threshold": 0.396847,
+    "iou_threshold": 0.5,
+    "AP50": 0.704717,
+    "AP50_95": 0.363289,
+    "prediction_count": 319,
+    "ground_truth_count": 63,
+    "image_count": 80,
+    "conf_mode": "auto"
+  },
+  "git_commit": "b82170894890ffd3f1bf5f7463e053b74347e878",
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.46"
+  }
+}

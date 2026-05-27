@@ -1,0 +1,4 @@
+status,image_path,error_type,confidence,iou,notes
+FP,data_gamma/train/images/train_670_png.rf.54e2b3cedb8d9dc3420f1c7f3ccda399.jpg,false_positive,0.168187,0.0,
+FN,data_gamma/train/images/train_501_png.rf.977aeb65c869b4e2845974aea451199c.jpg,false_negative,0.0,0.0,
+FN,data_gamma/valid/images/train_488_png.rf.f23f8aa61e85b2be4d00fa1f8d3727b9.jpg,false_negative,0.0,0.0,

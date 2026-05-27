@@ -1,0 +1,10 @@
+metric,value
+precision,0.840909
+recall,0.627119
+f1,0.718447
+AP50,0.685464
+AP50_95,0.228526
+confidence_threshold,0.166011
+tp,37
+fp,7
+fn,22

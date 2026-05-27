@@ -1,0 +1,6 @@
+status,image_path,error_type,confidence,iou,notes
+FP,data/valid/images/train_597_png.rf.df13092f303aa3814117236eb6e9649b.jpg,localization_error,0.985691,0.482499,
+FN,data/train/images/train_501_png.rf.977aeb65c869b4e2845974aea451199c.jpg,false_negative,0.0,0.0,
+FN,data/valid/images/train_188_png.rf.ebf761f2ecc6c0218831fb281dde4b15.jpg,false_negative,0.0,0.0,
+FN,data/valid/images/train_200_png.rf.ee490b379e304a08eca4b790b83f423a.jpg,false_negative,0.0,0.0,
+FN,data/valid/images/train_597_png.rf.df13092f303aa3814117236eb6e9649b.jpg,false_negative,0.0,0.0,

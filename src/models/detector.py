@@ -45,6 +45,26 @@ class DentalDetector:
             kwargs["workers"] = train_cfg["workers"]
         if "plots" in train_cfg:
             kwargs["plots"] = train_cfg["plots"]
+        for key in (
+            "hsv_h",
+            "hsv_s",
+            "hsv_v",
+            "degrees",
+            "translate",
+            "scale",
+            "shear",
+            "perspective",
+            "flipud",
+            "fliplr",
+            "mosaic",
+            "mixup",
+            "copy_paste",
+            "erasing",
+            "auto_augment",
+            "close_mosaic",
+        ):
+            if key in train_cfg:
+                kwargs[key] = train_cfg[key]
         self.model.train(**kwargs)
         best_path = Path(output_dir) / "train" / "weights" / "best.pt"
         return best_path

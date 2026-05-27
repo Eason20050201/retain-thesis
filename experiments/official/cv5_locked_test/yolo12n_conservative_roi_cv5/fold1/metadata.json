@@ -1,0 +1,32 @@
+{
+  "fold": 1,
+  "engine": "yolo",
+  "dataset_variant": "conservative_roi",
+  "fold_yaml": "data/splits/cv5_seed20260525/conservative_roi/fold1.yaml",
+  "train_list": "data/splits/cv5_seed20260525/conservative_roi/fold1_train.txt",
+  "val_list": "data/splits/cv5_seed20260525/conservative_roi/fold1_val.txt",
+  "output_dir": "experiments/official/cv5_locked_test/yolo12n_conservative_roi_cv5/fold1",
+  "weights": "experiments/official/cv5_locked_test/yolo12n_conservative_roi_cv5/fold1/train/weights/best.pt",
+  "metrics": {
+    "tp": 26,
+    "fp": 9,
+    "fn": 7,
+    "precision": 0.742857,
+    "recall": 0.787879,
+    "f1": 0.764706,
+    "confidence_threshold": 0.076997,
+    "iou_threshold": 0.5,
+    "AP50": 0.736667,
+    "AP50_95": 0.341769,
+    "prediction_count": 205,
+    "ground_truth_count": 33,
+    "image_count": 20,
+    "conf_mode": "auto"
+  },
+  "git_commit": "b82170894890ffd3f1bf5f7463e053b74347e878",
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.46"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "folds_completed": 5,
+  "f1_mean": 0.427076,
+  "f1_std": 0.397717,
+  "precision_mean": 0.494041,
+  "precision_std": 0.466575,
+  "recall_mean": 0.414964,
+  "recall_std": 0.303303,
+  "AP50_mean": 0.369001,
+  "AP50_std": 0.360234,
+  "AP50_95_mean": 0.129497,
+  "AP50_95_std": 0.143947,
+  "confidence_threshold_mean": 0.41022,
+  "confidence_threshold_std": 0.341079,
+  "experiment": "retinanet_resnet50_fpn_raw_cv5"
+}

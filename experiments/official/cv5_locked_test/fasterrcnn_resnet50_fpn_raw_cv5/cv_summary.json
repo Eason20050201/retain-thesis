@@ -1,0 +1,16 @@
+{
+  "folds_completed": 5,
+  "f1_mean": 0.867319,
+  "f1_std": 0.064669,
+  "precision_mean": 0.919058,
+  "precision_std": 0.047164,
+  "recall_mean": 0.829689,
+  "recall_std": 0.119382,
+  "AP50_mean": 0.825541,
+  "AP50_std": 0.110721,
+  "AP50_95_mean": 0.318875,
+  "AP50_95_std": 0.045377,
+  "confidence_threshold_mean": 0.595467,
+  "confidence_threshold_std": 0.298026,
+  "experiment": "fasterrcnn_resnet50_fpn_raw_cv5"
+}

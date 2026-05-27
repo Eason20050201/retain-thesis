@@ -1,0 +1,16 @@
+{
+  "folds_completed": 5,
+  "f1_mean": 0.829666,
+  "f1_std": 0.052277,
+  "precision_mean": 0.859017,
+  "precision_std": 0.058207,
+  "recall_mean": 0.811159,
+  "recall_std": 0.106141,
+  "AP50_mean": 0.835741,
+  "AP50_std": 0.070078,
+  "AP50_95_mean": 0.423423,
+  "AP50_95_std": 0.042503,
+  "confidence_threshold_mean": 0.194681,
+  "confidence_threshold_std": 0.294529,
+  "experiment": "yolo12n_dentex_mild_combo_cv5"
+}

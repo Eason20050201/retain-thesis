@@ -1,0 +1,12 @@
+status,image_path,error_type,confidence,iou,notes
+FP,data/train/images/train_258_png.rf.29fb80f3baf2b24747d65c2a68654dcd.jpg,localization_error,0.997545,0.420208,
+FP,data/train/images/train_523_png.rf.d9255186e9fb4722ac28c9e19a1e842b.jpg,false_positive,0.983179,0.0,
+FP,data/train/images/train_258_png.rf.29fb80f3baf2b24747d65c2a68654dcd.jpg,false_positive,0.924241,0.0,
+FP,data/train/images/train_358_png.rf.1af68a4058eb379d3c738d92691bcf42.jpg,false_positive,0.732749,0.0,
+FP,data/train/images/train_62_png.rf.fc728f3ecb9bac9ddbbf01cded87a1ca.jpg,localization_error,0.69772,0.45072,
+FN,data/train/images/train_101_png.rf.e3f2bdba7a85c6794e6e6b6116dc59c6.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_258_png.rf.29fb80f3baf2b24747d65c2a68654dcd.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_564_png.rf.b1615ecdbaad1d6ab549b56945a337a0.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_56_png.rf.3344f6ea9e3f89112519aaf8384649ad.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_62_png.rf.fc728f3ecb9bac9ddbbf01cded87a1ca.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_62_png.rf.fc728f3ecb9bac9ddbbf01cded87a1ca.jpg,false_negative,0.0,0.0,

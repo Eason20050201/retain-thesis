@@ -1,0 +1,16 @@
+{
+  "folds_completed": 5,
+  "f1_mean": 0.799306,
+  "f1_std": 0.07812,
+  "precision_mean": 0.871053,
+  "precision_std": 0.058551,
+  "recall_mean": 0.749778,
+  "recall_std": 0.127373,
+  "AP50_mean": 0.807914,
+  "AP50_std": 0.08668,
+  "AP50_95_mean": 0.401547,
+  "AP50_95_std": 0.035138,
+  "confidence_threshold_mean": 0.234271,
+  "confidence_threshold_std": 0.104379,
+  "experiment": "yolo12n_aspect188_cv5"
+}

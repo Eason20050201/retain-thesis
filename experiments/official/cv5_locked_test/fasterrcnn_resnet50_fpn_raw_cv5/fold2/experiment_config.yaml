@@ -1,0 +1,26 @@
+name: fasterrcnn_resnet50_fpn_raw_cv5
+description: "Official CV: Faster R-CNN ResNet50-FPN raw-image baseline."
+protocol: configs/protocol/cv5_locked_test.yaml
+engine: torchvision
+model_name: fasterrcnn_resnet50_fpn
+dataset_variant: raw
+
+train:
+  epochs: 50
+  batch_size: 2
+  learning_rate: 0.005
+  optimizer: SGD
+  momentum: 0.9
+  weight_decay: 0.0005
+  device: "0"
+  seed: 20260525
+  workers: 2
+  pretrained_backbone: true
+  eval_every: 1
+
+evaluation:
+  iou_threshold: 0.5
+  conf_mode: auto
+  predict_conf: 0.001
+  max_det: 300
+

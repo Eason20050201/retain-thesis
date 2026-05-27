@@ -1,0 +1,32 @@
+{
+  "fold": 2,
+  "engine": "torchvision",
+  "dataset_variant": "raw",
+  "fold_yaml": "data/splits/cv5_seed20260525/raw/fold2.yaml",
+  "train_list": "data/splits/cv5_seed20260525/raw/fold2_train.txt",
+  "val_list": "data/splits/cv5_seed20260525/raw/fold2_val.txt",
+  "output_dir": "experiments/official/cv5_locked_test/fasterrcnn_resnet50_fpn_raw_cv5/fold2",
+  "weights": "experiments/official/cv5_locked_test/fasterrcnn_resnet50_fpn_raw_cv5/fold2/train/weights/best.pt",
+  "metrics": {
+    "tp": 24,
+    "fp": 1,
+    "fn": 4,
+    "precision": 0.96,
+    "recall": 0.857143,
+    "f1": 0.90566,
+    "confidence_threshold": 0.91109,
+    "iou_threshold": 0.5,
+    "AP50": 0.884994,
+    "AP50_95": 0.357589,
+    "prediction_count": 56,
+    "ground_truth_count": 28,
+    "image_count": 20,
+    "conf_mode": "auto"
+  },
+  "git_commit": "b82170894890ffd3f1bf5f7463e053b74347e878",
+  "package_versions": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "ultralytics": "8.4.46"
+  }
+}

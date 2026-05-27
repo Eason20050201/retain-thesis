@@ -1,0 +1,7 @@
+status,image_path,error_type,confidence,iou,notes
+FP,data_clahe/valid/images/train_597_png.rf.df13092f303aa3814117236eb6e9649b.jpg,localization_error,0.727992,0.396812,
+FP,data_clahe/valid/images/train_597_png.rf.df13092f303aa3814117236eb6e9649b.jpg,false_positive,0.236233,0.0,
+FN,data_clahe/train/images/train_501_png.rf.977aeb65c869b4e2845974aea451199c.jpg,false_negative,0.0,0.0,
+FN,data_clahe/valid/images/train_200_png.rf.ee490b379e304a08eca4b790b83f423a.jpg,false_negative,0.0,0.0,
+FN,data_clahe/valid/images/train_488_png.rf.f23f8aa61e85b2be4d00fa1f8d3727b9.jpg,false_negative,0.0,0.0,
+FN,data_clahe/valid/images/train_597_png.rf.df13092f303aa3814117236eb6e9649b.jpg,false_negative,0.0,0.0,

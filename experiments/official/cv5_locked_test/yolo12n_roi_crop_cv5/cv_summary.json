@@ -1,0 +1,16 @@
+{
+  "folds_completed": 5,
+  "f1_mean": 0.811863,
+  "f1_std": 0.057499,
+  "precision_mean": 0.843,
+  "precision_std": 0.03831,
+  "recall_mean": 0.787302,
+  "recall_std": 0.095692,
+  "AP50_mean": 0.818459,
+  "AP50_std": 0.058538,
+  "AP50_95_mean": 0.408938,
+  "AP50_95_std": 0.032649,
+  "confidence_threshold_mean": 0.337687,
+  "confidence_threshold_std": 0.110719,
+  "experiment": "yolo12n_roi_crop_cv5"
+}

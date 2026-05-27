@@ -1,0 +1,16 @@
+{
+  "tp": 42,
+  "fp": 17,
+  "fn": 17,
+  "precision": 0.711864,
+  "recall": 0.711864,
+  "f1": 0.711864,
+  "confidence_threshold": 0.10204,
+  "iou_threshold": 0.5,
+  "AP50": 0.678632,
+  "AP50_95": 0.220469,
+  "prediction_count": 610,
+  "ground_truth_count": 59,
+  "image_count": 26,
+  "conf_mode": "auto"
+}

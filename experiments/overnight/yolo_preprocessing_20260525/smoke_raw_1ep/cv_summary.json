@@ -1,0 +1,16 @@
+{
+  "folds_completed": 1,
+  "f1_mean": 0.0,
+  "f1_std": 0.0,
+  "precision_mean": 0.0,
+  "precision_std": 0.0,
+  "recall_mean": 0.0,
+  "recall_std": 0.0,
+  "AP50_mean": 0.0,
+  "AP50_std": 0.0,
+  "AP50_95_mean": 0.0,
+  "AP50_95_std": 0.0,
+  "confidence_threshold_mean": 0.012648,
+  "confidence_threshold_std": 0.0,
+  "experiment": "smoke_raw_1ep"
+}

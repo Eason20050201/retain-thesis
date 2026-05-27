@@ -1,0 +1,16 @@
+{
+  "folds_completed": 1,
+  "f1_mean": 0.793651,
+  "f1_std": 0.0,
+  "precision_mean": 0.78125,
+  "precision_std": 0.0,
+  "recall_mean": 0.806452,
+  "recall_std": 0.0,
+  "AP50_mean": 0.826121,
+  "AP50_std": 0.0,
+  "AP50_95_mean": 0.437632,
+  "AP50_95_std": 0.0,
+  "confidence_threshold_mean": 0.013148,
+  "confidence_threshold_std": 0.0,
+  "experiment": "yolo12n_photo_aug_fold0"
+}

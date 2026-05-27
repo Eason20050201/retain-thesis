@@ -1,0 +1,10 @@
+status,image_path,error_type,confidence,iou,notes
+FP,data/train/images/train_31_png.rf.7882a35de62b7a0885e02eff3065b824.jpg,false_positive,0.154393,0.0,
+FP,data/train/images/train_164_png.rf.488dd6fc6fd3c0e17d536b903fa9fb04.jpg,false_positive,0.150295,0.0,
+FP,data/valid/images/train_115_png.rf.ec8711053dea7814151b87cb5357520e.jpg,false_positive,0.054285,0.0,
+FN,data/train/images/train_21_png.rf.0bfd20929a68788a40b71e93e68a184d.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_21_png.rf.0bfd20929a68788a40b71e93e68a184d.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_287_png.rf.b1c935792298ca1ddf2c42dc932196cb.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_31_png.rf.7882a35de62b7a0885e02eff3065b824.jpg,false_negative,0.0,0.0,
+FN,data/train/images/train_9_png.rf.2f430b30b557521744d6eae50b813dab.jpg,false_negative,0.0,0.0,
+FN,data/valid/images/train_115_png.rf.ec8711053dea7814151b87cb5357520e.jpg,false_negative,0.0,0.0,

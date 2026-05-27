@@ -1,0 +1,25 @@
+name: yolo12s_raw_1280_cv5
+description: "Round 3: YOLOv12s raw images with imgsz=1280 to combine larger capacity and higher input resolution."
+protocol: configs/protocol/cv5_locked_test.yaml
+engine: yolo
+model: model/yolo12s.yaml
+dataset_variant: raw
+
+train:
+  epochs: 80
+  batch_size: 4
+  learning_rate: 0.000676
+  optimizer: AdamW
+  patience: 25
+  img_size: 1280
+  device: "0"
+  seed: 20260525
+  workers: 2
+  plots: false
+
+evaluation:
+  iou_threshold: 0.5
+  conf_mode: auto
+  predict_conf: 0.001
+  nms_iou: 0.45
+  max_det: 300

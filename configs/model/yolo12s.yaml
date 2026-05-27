@@ -1,0 +1,15 @@
+name: yolo12s
+task: detect
+pretrained: true
+weights: yolo12s.pt
+
+num_classes: 1
+class_names:
+  - "tooth"
+
+inference:
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  max_det: 50
+  img_size: 1024
+  device: auto

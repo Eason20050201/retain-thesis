@@ -1,0 +1,68 @@
+name: cv5_locked_test
+description: "Official protocol: 5-fold CV on train+valid, locked final test."
+seed: 20260525
+folds: 5
+patient_level: false
+patient_level_note: "No patient id is available in the current dataset; v1 uses image-level splits."
+
+primary_metric: f1
+iou_threshold: 0.5
+confidence:
+  mode: auto
+  tie_break: higher_threshold
+
+splits:
+  dev_sources:
+    - data/train/images
+    - data/valid/images
+  locked_test_source: data/test/images
+  output_dir: data/splits/cv5_seed20260525
+  locked_test_file: data/splits/locked_test.txt
+
+datasets:
+  raw:
+    image_root: data
+    label_root: data
+  clahe:
+    image_root: data_clahe
+    label_root: data_clahe
+  kde:
+    image_root: data_kde
+    label_root: data_kde
+  gray:
+    image_root: data_gray
+    label_root: data_gray
+  gamma:
+    image_root: data_gamma
+    label_root: data_gamma
+  clahe_abc:
+    image_root: data_clahe_abc
+    label_root: data_clahe_abc
+  pipeline:
+    image_root: data_pipeline
+    label_root: data_pipeline
+  pipeline2:
+    image_root: data_pipeline2
+    label_root: data_pipeline2
+  roi_crop:
+    image_root: data_roi_crop
+    label_root: data_roi_crop
+  conservative_roi:
+    image_root: data_conservative_roi
+    label_root: data_conservative_roi
+  quadrant:
+    image_root: data_quadrant
+    label_root: data_quadrant
+    tile_manifest: data_quadrant/tile_manifest.json
+  aspect188:
+    image_root: data_aspect188
+    label_root: data_aspect188
+  pnorm:
+    image_root: data_pnorm
+    label_root: data_pnorm
+  aspect188_pnorm:
+    image_root: data_aspect188_pnorm
+    label_root: data_aspect188_pnorm
+
+class_names:
+  - tooth
