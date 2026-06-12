@@ -1,0 +1,2 @@
+﻿experiment,precision,recall,mAP50,mAP50_95,f1,fitness,best_pt
+mixed_original_clahe_clip2.0_tile8_20260503_043341,0.758169,0.711864,0.721188,0.300852,0.734288,0.300851742692377,/home/mmlab206/文件/41247018S/retain-thesis/experiments/clahe_retain/mixed_original_clahe_clip2.0_tile8_20260503_043341/train/weights/best.pt

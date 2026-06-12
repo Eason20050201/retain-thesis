@@ -1,0 +1,13 @@
+train: test/images
+val: test/images
+test: test/images
+nc: 1
+names:
+- NTU Pano retain - v2 2025-09-12 3-27pm
+roboflow:
+  workspace: teeth-disease-detect
+  project: ntu-retain-bqhua
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/teeth-disease-detect/ntu-retain-bqhua/dataset/4
+path: /home/mmlab206/文件/41247018S/retain-thesis/data/NTU retain.v4-2025-12-25-retain_yolo12_test

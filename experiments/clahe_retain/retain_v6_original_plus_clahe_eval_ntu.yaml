@@ -1,0 +1,7 @@
+path: /home/mmlab206/文件/41247018S/retain-thesis
+train: /home/mmlab206/文件/41247018S/retain-thesis/experiments/clahe_retain/mixed_original_clahe_train_valid.txt
+val: /home/mmlab206/文件/41247018S/retain-thesis/experiments/clahe_retain/mixed_original_clahe_train_valid.txt
+test: /home/mmlab206/文件/41247018S/retain-thesis/data/test/images
+nc: 1
+names:
+- tooth

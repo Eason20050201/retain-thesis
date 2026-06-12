@@ -1,0 +1,4 @@
+﻿experiment,precision,recall,mAP50,mAP50_95,f1,fitness,best_pt
+baseline_original_20260506_034929,0.563822,0.657317,0.632907,0.249244,0.60699,0.2492438684094246,/home/mmlab206/文件/41247018S/retain-thesis/experiments/clahe_retain/baseline_original_20260506_034929/train/weights/best.pt
+clahe_clip2.0_tile8_20260506_034929,0.702669,0.694915,0.706156,0.258173,0.69877,0.25817337446724786,/home/mmlab206/文件/41247018S/retain-thesis/experiments/clahe_retain/clahe_clip2.0_tile8_20260506_034929/train/weights/best.pt
+mixed_original_clahe_clip2.0_tile8_20260506_034929,0.758169,0.711864,0.721188,0.300852,0.734288,0.300851742692377,/home/mmlab206/文件/41247018S/retain-thesis/experiments/clahe_retain/mixed_original_clahe_clip2.0_tile8_20260506_034929/train/weights/best.pt

@@ -1,0 +1,13 @@
+train: /home/mmlab206/文件/41247018S/retain-thesis/experiments/ntu_train101_eval26/clahe_train101_eval26_20260503_052209/merged_train.txt
+val: /home/mmlab206/文件/41247018S/retain-thesis/experiments/ntu_train101_eval26/clahe_train101_eval26_20260503_052209/merged_train.txt
+test: /home/mmlab206/文件/41247018S/retain-thesis/experiments/ntu_train101_eval26/clahe_train101_eval26_20260503_052209/merged_train.txt
+nc: 1
+names:
+- Retained
+roboflow:
+  workspace: teeth-disease-detect
+  project: retain-tmqro
+  version: 6
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/teeth-disease-detect/retain-tmqro/dataset/6
+path: /home/mmlab206/文件/41247018S/retain-thesis/data/retain.v6-traing-data-clahe
